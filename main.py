@@ -22,7 +22,9 @@ class UpButton(QPushButton):
 
     def mouseReleaseEvent(self, event):
         super(UpButton, self).mouseReleaseEvent(event)
-        self.setIcon(QIcon("Qt_project_res/UpButtonPress.png" if self.isChecked() else "Qt_project_res/UpButton.png"))
+        self.setIcon(QIcon(
+            "Qt_project_res/UpButtonPress.png" if self.isChecked() else
+            "Qt_project_res/UpButton.png"))
 
 
 class DownButton(QPushButton):
@@ -37,7 +39,9 @@ class DownButton(QPushButton):
     def mouseReleaseEvent(self, event):
         super(DownButton, self).mouseReleaseEvent(event)
         self.setIcon(
-            QIcon("Qt_project_res/DownButtonPress.png" if self.isChecked() else "Qt_project_res/DownButton.png"))
+            QIcon(
+                "Qt_project_res/DownButtonPress.png" if self.isChecked() else
+                "Qt_project_res/DownButton.png"))
 
 
 class StartTimerButton(QPushButton):
@@ -52,7 +56,9 @@ class StartTimerButton(QPushButton):
     def mouseReleaseEvent(self, event):
         super(StartTimerButton, self).mouseReleaseEvent(event)
         self.setIcon(
-            QIcon("Qt_project_res/StartTimerPress.png" if self.isChecked() else "Qt_project_res/StartTimerButton.png"))
+            QIcon(
+                "Qt_project_res/StartTimerPress.png" if self.isChecked() else
+                "Qt_project_res/StartTimerButton.png"))
 
 
 class StopTimerButton(QPushButton):
@@ -67,7 +73,9 @@ class StopTimerButton(QPushButton):
     def mouseReleaseEvent(self, event):
         super(StopTimerButton, self).mouseReleaseEvent(event)
         self.setIcon(
-            QIcon("Qt_project_res/StopTimerPress.png" if self.isChecked() else "Qt_project_res/StopTimerButton.png"))
+            QIcon(
+                "Qt_project_res/StopTimerPress.png" if self.isChecked() else
+                "Qt_project_res/StopTimerButton.png"))
 
 
 class ResetTimerButton(QPushButton):
@@ -82,7 +90,9 @@ class ResetTimerButton(QPushButton):
     def mouseReleaseEvent(self, event):
         super(ResetTimerButton, self).mouseReleaseEvent(event)
         self.setIcon(
-            QIcon("Qt_project_res/ResetTimerPress.png" if self.isChecked() else "Qt_project_res/ResetTimerButton.png"))
+            QIcon(
+                "Qt_project_res/ResetTimerPress.png" if self.isChecked() else
+                "Qt_project_res/ResetTimerButton.png"))
 
 
 class LineEdit(QLineEdit):
@@ -91,7 +101,8 @@ class LineEdit(QLineEdit):
 
     def keyPressEvent(self, e):
         k = e.key()
-        if Qt.Key_0 <= k <= Qt.Key_9 or k == Qt.Key_Left or k == Qt.Key_Right or k == Qt.Key_Backspace:
+        if Qt.Key_0 <= k <= Qt.Key_9 or k == Qt.Key_Left or k == Qt.Key_Right or k == \
+                Qt.Key_Backspace:
             super().keyPressEvent(e)
 
 
@@ -102,11 +113,8 @@ class Tablo(object):
         self.stopTimer = False
         self.minutes = 0
         self.seconds = 0
-        self.min_go = 0
-        self.sec_go = 0
         self.timer = QTimer()
         self.timer.timeout.connect(self.TimeOut_func)
-        self.player = QtMultimedia.QMediaPlayer()
 
     def setupUi(self):
         self.MainWindow.setEnabled(True)
@@ -124,9 +132,7 @@ class Tablo(object):
         font.setItalic(False)
         self.MainWindow.setFont(font)
         self.MainWindow.setMouseTracking(False)
-        icon = QIcon()
-        icon.addFile(u":/icons/Qt_project_res/football.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.MainWindow.setWindowIcon(icon)
+        self.MainWindow.setWindowIcon(QIcon("Qt_project_res/2.1.png"))
         self.MainWindow.setToolButtonStyle(Qt.ToolButtonIconOnly)
         self.MainWidget = QWidget(self.MainWindow)
         self.MainWidget.setObjectName(u"MainWidget")
@@ -291,7 +297,7 @@ class Tablo(object):
         self.HostsGoalCounter_Rectangle.setAlignment(Qt.AlignCenter)
         self.HostsGoalCounter = QLabel(self.MainWidget)
         self.HostsGoalCounter.setObjectName(u"HostsGoalCounter")
-        self.HostsGoalCounter.setGeometry(QRect(29, 62, 81, 84))
+        self.HostsGoalCounter.setGeometry(QRect(26, 62, 86, 84))
         self.HostsGoalCounter.setStyleSheet(u"QLabel{\n"
                                             "    font-family: Roboto;\n"
                                             "    font-size: 85px;\n"
@@ -304,7 +310,7 @@ class Tablo(object):
         self.PeriodCounter_Rectangle.setPixmap(QPixmap(u":/forms/Qt_project_res/Rectangle.png"))
         self.PeroidText = QLabel(self.MainWidget)
         self.PeroidText.setObjectName(u"PeroidText")
-        self.PeroidText.setGeometry(QRect(320, 31, 98, 20))
+        self.PeroidText.setGeometry(QRect(320, 31, 98, 22))
         self.PeroidText.setStyleSheet(u"QLabel{\n"
                                       "    font-family: Roboto;\n"
                                       "    font-size: 24px;\n"
@@ -327,7 +333,7 @@ class Tablo(object):
         self.GuestsGoalCounter_Rectangle.setAlignment(Qt.AlignCenter)
         self.GuestsGoalCounter = QLabel(self.MainWidget)
         self.GuestsGoalCounter.setObjectName(u"GuestsGoalCounter")
-        self.GuestsGoalCounter.setGeometry(QRect(629, 62, 81, 84))
+        self.GuestsGoalCounter.setGeometry(QRect(626, 62, 86, 84))
         self.GuestsGoalCounter.setStyleSheet(u"QLabel{\n"
                                              "    font-family: Roboto;\n"
                                              "    font-size: 85px;\n"
@@ -370,7 +376,8 @@ class Tablo(object):
         self.GuestsFoulCounter_Rectangle.setObjectName(u"GuestsFoulCounter_Rectangle")
         self.GuestsFoulCounter_Rectangle.setGeometry(QRect(619, 218, 100, 100))
         self.GuestsFoulCounter_Rectangle.setPixmap(QPixmap(u":/forms/Qt_project_res/Rectangle.png"))
-        self.GuestsFoulCounter_Rectangle.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
+        self.GuestsFoulCounter_Rectangle.setAlignment(
+            Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
         self.GuestFoulsText = QLabel(self.MainWidget)
         self.GuestFoulsText.setObjectName(u"GuestFoulsText")
         self.GuestFoulsText.setGeometry(QRect(632, 188, 75, 29))
@@ -439,6 +446,27 @@ class Tablo(object):
         self.Seconds.setFrame(False)
         self.Seconds.setEchoMode(QLineEdit.Normal)
         self.Seconds.setAlignment(Qt.AlignCenter)
+
+        self.GuestText = QLabel(self.MainWidget)
+        self.GuestText.setObjectName(u"GuestText")
+        self.GuestText.setGeometry(QRect(618, 5, 100, 22))
+        self.GuestText.setStyleSheet(u"QLabel{\n"
+                                     "    font-family: Roboto;\n"
+                                     "    font-size: 24px;\n"
+                                     "    font-weight: 500;\n"
+                                     "}")
+        self.GuestText.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
+
+        self.HostsText = QLabel(self.MainWidget)
+        self.HostsText.setObjectName(u"HostsText")
+        self.HostsText.setGeometry(QRect(24, 5, 100, 22))
+        self.HostsText.setStyleSheet(u"QLabel{\n"
+                                     "    font-family: Roboto;\n"
+                                     "    font-size: 24px;\n"
+                                     "    font-weight: 500;\n"
+                                     "}")
+        self.HostsText.setAlignment(Qt.AlignBottom | Qt.AlignHCenter)
+
         self.MainWindow.setCentralWidget(self.MainWidget)
         self.UpButtonPeriod.raise_()
         self.DownButtonPeriod.raise_()
@@ -473,6 +501,8 @@ class Tablo(object):
         self.Minutes.raise_()
         self.Seconds.raise_()
         self.HostsGoalCounter.raise_()
+        self.HostsText.raise_()
+        self.GuestText.raise_()
 
         self.retranslateUi(self.MainWindow)
 
@@ -509,33 +539,43 @@ class Tablo(object):
         self.ResetTimerButton.setText("")
         self.UpButtonFh.setText("")
         self.DownButtonFh.setText("")
-        self.HostsScoreText.setText(QCoreApplication.translate("MainWindow", u"\u0441\u0447\u0451\u0442", None))
+        self.HostsScoreText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0441\u0447\u0451\u0442", None))
         self.Timer_Rectangle.setText("")
         self.UpButtonGh.setText("")
         self.DownButtonGh.setText("")
         self.HostsGoalCounter_Rectangle.setText("")
         self.HostsGoalCounter.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.PeriodCounter_Rectangle.setText("")
-        self.PeroidText.setText(QCoreApplication.translate("MainWindow", u"\u043f\u0435\u0440\u0438\u043e\u0434", None))
+        self.PeroidText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0442\u0430\u0439\u043c", None))
         self.PeriodCounter.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.GuestsGoalCounter_Rectangle.setText("")
         self.GuestsGoalCounter.setText(QCoreApplication.translate("MainWindow", u"0", None))
-        self.GuestScoreText.setText(QCoreApplication.translate("MainWindow", u"\u0441\u0447\u0451\u0442", None))
+        self.GuestScoreText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0441\u0447\u0451\u0442", None))
         self.HostsFoulCounter_Rectangle.setText("")
-        self.FoulsHostsText.setText(QCoreApplication.translate("MainWindow", u"\u0444\u043e\u043b\u044b", None))
+        self.FoulsHostsText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0444\u043e\u043b\u044b", None))
         self.HostsFoulCounter.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.GuestsFoulCounter_Rectangle.setText("")
-        self.GuestFoulsText.setText(QCoreApplication.translate("MainWindow", u"\u0444\u043e\u043b\u044b", None))
+        self.GuestFoulsText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0444\u043e\u043b\u044b", None))
         self.Separator.setText(QCoreApplication.translate("MainWindow", u":", None))
-        self.TimeText.setText(QCoreApplication.translate("MainWindow", u"\u0432\u0440\u0435\u043c\u044f", None))
+        self.TimeText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0432\u0440\u0435\u043c\u044f", None))
         self.GuestsFoulCounter.setText(QCoreApplication.translate("MainWindow", u"0", None))
         self.Minutes.setInputMask("")
         self.Minutes.setText(QCoreApplication.translate("MainWindow", u"00", None))
         self.Seconds.setText(QCoreApplication.translate("MainWindow", u"00", None))
-
+        self.GuestText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0413\u043e\u0441\u0442\u0438", None))
+        self.HostsText.setText(
+            QCoreApplication.translate("MainWindow", u"\u0425\u043e\u0437\u044f\u0435\u0432\u0430",
+                                       None))
     def UpButtonGh_func(self):
         n = int(self.HostsGoalCounter.text())
-        if n != 9:
+        if n != 99:
             self.HostsGoalCounter.setText(str(n + 1))
 
     def DownButtonGh_func(self):
@@ -555,7 +595,7 @@ class Tablo(object):
 
     def UpButtonGg_func(self):
         n = int(self.GuestsGoalCounter.text())
-        if n != 9:
+        if n != 99:
             self.GuestsGoalCounter.setText(str(n + 1))
 
     def DownButtonGg_func(self):
@@ -588,15 +628,12 @@ class Tablo(object):
             self.stopTimer = False
             self.startTimer = True
             self.timer.start()
-            pass
         elif not self.startTimer:
             self.startTimer = True
             self.Seconds.setReadOnly(True)
             self.Minutes.setReadOnly(True)
             self.minutes = int(self.Minutes.text())
             self.seconds = int(self.Seconds.text())
-            self.Seconds.setText("00")
-            self.Minutes.setText("00")
             self.timer.start(1000)
 
     def StopTimerButton_func(self):
@@ -612,28 +649,24 @@ class Tablo(object):
         self.Seconds.setText("00")
         self.Minutes.setReadOnly(False)
         self.Seconds.setReadOnly(False)
-        self.timer.stop()
-        self.min_go = 0
-        self.sec_go = 0
         self.seconds = 0
         self.minutes = 0
+        self.timer.stop()
 
     def TimeOut_func(self):
-        if self.startTimer:
-            self.sec_go += 1
-            if self.sec_go == 60:
-                self.sec_go = 0
-                self.min_go += 1
-            if self.sec_go >= self.seconds and self.min_go >= self.minutes:
+        if self.seconds == 0:
+            if self.minutes == 0:
+                self.startTimer = False
                 self.timer.stop()
+                self.player.play()
                 pass
-            self.Seconds.setText(f'{self.sec_go // 10}{self.sec_go % 10}')
-            self.Minutes.setText(f'{self.min_go // 10}{self.min_go % 10}')
-
-    def load_mp3(self, filename):
-        media = QUrl.fromLocalFile(filename)
-        content = QtMultimedia.QMediaContent(media)
-        self.player.setMedia(content)
+            else:
+                self.minutes -= 1
+                self.seconds = 59
+        else:
+            self.seconds -= 1
+        self.Seconds.setText(f'{self.seconds // 10}{self.seconds % 10}')
+        self.Minutes.setText(f'{self.minutes // 10}{self.minutes % 10}')
 
 
 if __name__ == "__main__":
