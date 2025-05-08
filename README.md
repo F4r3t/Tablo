@@ -32,3 +32,7 @@
    git clone https://github.com/F4r3t/Tablo.git
    cd Tablo
    python main.py
+   ```
+---  
+⭐ **Звездите репозиторий**, если игра вам понравилась!  
+🐞 **Баги и идеи** оставляйте в [Issues](https://github.com/F4r3t/Project_pygame/issues).  
